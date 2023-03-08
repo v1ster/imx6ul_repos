@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "bsp_delay.h": "c",
+        "bsp_clk.h": "c",
+        "mcimx6y2.h": "c"
+    }
+}
