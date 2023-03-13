@@ -17,6 +17,8 @@ int main(void)
     beep_init();
     key_init();
     exit_init();
+
+    // epit1_init(0, 66000000/2);
     while (1) {
         state = !state;
         led_switch(LED0, state);

@@ -31,11 +31,11 @@ Reset_Handler:
      */
     mrc     p15, 0, r0, c1, c0, 0 /* 读取 CP15 的 C1 寄存器到 R0 中 */
     bic     r0, r0, #(0x1 << 12) /* 清除 C1 的 I 位，关闭 I Cache */
-    bic     r0, r0, #(px1 <<  2) /* 清除 C1 的 C 位，关闭 D Cache */
+    bic     r0, r0, #(0x1 <<  2) /* 清除 C1 的 C 位，关闭 D Cache */
     bic     r0, r0, #02          /* 清除 C1 的 A 位，关闭对齐检查 */
     bic     r0, r0, #(0x1 << 11) /* 清除 C1 的 Z 位，关闭分支预测 */
     bic     r0, r0, #0x1         /* 清除 C1 的 M 位，关闭 MMU */
-    bic     p15, 0, r0, c1, c0, 0 /* 将 r0 的值写入到 CP15 的 C1 中 */
+    mcr     p15, 0, r0, c1, c0, 0 /* 将 r0 的值写入到 CP15 的 C1 中 */
 
 #if 0
     /* 汇编版本设置中断向量表偏移 */
@@ -54,7 +54,7 @@ Reset_Handler:
      * DDR 范围:0X80000000~0X9FFFFFFF 或者 0X8FFFFFFF
      */
      /* 进入 IRQ 模式 */
-     mrs ar0, cpsr
+     mrs r0, cpsr
      bic r0, r0, #0x1f      /* 将 r0 的低 5 位清零，也就是 cpsr 的 M0~M4 */
      orr r0, r0, #0x12      /* r0 或上 0x12,表示使用 IRQ 模式 */
      msr cpsr, r0           /* 将 r0 的数据写入到 cpsr 中 */

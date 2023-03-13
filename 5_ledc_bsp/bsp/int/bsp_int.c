@@ -6,7 +6,7 @@ static unsigned int irqNesting;
 /* 中断服务函数表 */
 static sys_irq_handle_t irqTable[NUMBER_OF_INT_VECTORS];
 
-void init_init(void)
+void int_init(void)
 {
     GIC_Init();             /* 初始化 GIC */
     system_irqtable_init(); /* 初始化中断表 */

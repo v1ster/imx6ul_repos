@@ -175,7 +175,7 @@
 
 #endif
 
-// #include "core_ca.h"                /* Core Instruction and Function Access */
+#include "core_ca.h"                /* Core Instruction and Function Access */
 
 #ifdef __cplusplus
 }
