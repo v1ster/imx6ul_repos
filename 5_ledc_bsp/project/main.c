@@ -5,6 +5,7 @@
 #include "bsp_int.h"
 #include "bsp_key.h"
 #include "bsp_led.h"
+#include "bsp_keyfilter.h"
 
 int main(void)
 {
@@ -15,8 +16,7 @@ int main(void)
     clk_enable();
     led_init();
     beep_init();
-    key_init();
-    exit_init();
+    filterkey_init();
 
     // epit1_init(0, 66000000/2);
     while (1) {

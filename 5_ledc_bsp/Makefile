@@ -15,7 +15,8 @@ INCDIRS			:= imx6ul \
 					bsp/key \
 					bsp/exit \
 					bsp/int \
-					bsp/epittimer 
+					bsp/epittimer \
+					bsp/keyfilter
 
 SRCDIRS			:= project \
 					bsp/clk \
@@ -26,7 +27,8 @@ SRCDIRS			:= project \
 					bsp/key \
 					bsp/exit \
 					bsp/int \
-					bsp/epittimer 
+					bsp/epittimer \
+					bsp/keyfilter
 
 INCLUDE			:= $(patsubst %, -I %, $(INCDIRS))
 
